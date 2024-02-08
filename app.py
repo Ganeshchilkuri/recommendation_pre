@@ -45,7 +45,7 @@ def recommend(movie):
 
     # print the top 10 movies base on similiarity score 
     recommended_movie_names = []
-    # recommended_movie_posters = []
+    recommended_movie_posters = []
     overview = []
     for movie in sorted_similar_movies:
         index = movie[0]
