@@ -81,53 +81,5 @@ if st.button('Show Recommendation'):
             with col2:
                 st.subheader("Description")
                 st.write(overview[i])           
-df1 = pd.DataFrame(movie_list['genre'].apply(lambda x : x.split(",")))  
-genre = set()
-for i in range(9614):
-    for j in df1['genre'][i]:
-        genre.add(j)
-df2 = pd.DataFrame(movie_list['orig_lang'].apply(lambda x : x.split()))  
-Language = set()
-for i in range(9614):
-    for j in df2['orig_lang'][i]:
-        Language.add(j)
-df3 = pd.DataFrame(movie_list['country'].apply(lambda x : x.split()))  
-country = set()
-for i in range(9614):
-    for j in df3['country'][i]:
-        country.add(j)
-year = set(movie_list['Release_year'])
-with st.sidebar:
-    selected_items = []
-    selected_gener = st.selectbox(
-    "Type or select a gener from the dropdown",
-    genre
-)
-    selected_lang = st.selectbox(
-    "Type or select a language from the dropdown",
-    Language
-)
-    selected_country = st.selectbox(
-    "Type or select a country the dropdown",
-    country
-)
-    selected_year = st.selectbox(
-    "Type or select a year the dropdown",
-    year
-)
-    if st.button('Filtter'):
-        poster = []
-        arr = movie_list[(movie_list['Release_year'] == selected_year) | (movie_list['country'] == selected_country) | (movie_list['genre'] == selected_gener) | (movie_list['orig_lang'] == selected_lang)]
-        for i in arr['names'].values[0:9]:
-            poster.append(fetch_poster(i))
-for i in range(10):
-    with st.container():
-        col3,col4 = st.columns(2)
-        with col3:
-            st.write(arr['names'].values[i])
-            # st.image("https://static.streamlit.io/examples/cat.jpg")
-            st.image(poster[i]) 
-        with col4:
-                st.write(arr['overview'].values[i]) 
 
 
