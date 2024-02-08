@@ -57,7 +57,7 @@ def recommend(movie):
             recommended_movie_posters.append(fetch_poster(title_from_index))
             i+=1
     
-    return recommended_movie_names,overview
+    return recommended_movie_names,overview,recommended_movie_posters
 
 
 st.header('Movie Recommender System')
@@ -77,7 +77,7 @@ if st.button('Show Recommendation'):
             col1,col2 = st.columns([0.4,0.6],gap="medium")
             with col1:
                 st.title(recommended_movie_names[i])
-                st.image("https://static.streamlit.io/examples/cat.jpg")
+                st.image(recommended_movie_posters[i])
             with col2:
                 st.subheader("Description")
                 st.write(overview[i])           
