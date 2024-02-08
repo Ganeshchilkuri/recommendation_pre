@@ -54,7 +54,7 @@ def recommend(movie):
         if (i<=10):
             recommended_movie_names.append(title_from_index)
             overview.append(overview_from_index)
-            # recommended_movie_posters.append(fetch_poster(title_from_index))
+            recommended_movie_posters.append(fetch_poster(title_from_index))
             i+=1
     
     return recommended_movie_names,overview
